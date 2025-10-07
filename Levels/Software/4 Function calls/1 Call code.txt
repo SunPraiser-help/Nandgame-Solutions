@@ -1,0 +1,52 @@
+#DEFINE SHARED CONSTANTS
+# ARGS = 1
+# LOCALS = 2
+# RETVAL = 6
+
+A= ARGS
+D=*A
+PUSH_D
+
+A= LOCALS
+D=*A
+PUSH_D
+
+A= BACK
+D=A
+PUSH_D
+
+A=0
+D=*A
+A= argumentCount
+D=D-A
+A=3
+D=D-A
+
+A= ARGS
+*A=D
+
+A= functionName
+JMP
+
+BACK:
+A= ARGS
+D=*A
+A=0xFF
+*A=D
+
+POP_D
+A= LOCALS
+*A=D
+
+POP_D
+A= ARGS
+*A=D
+
+A= 0xFF
+D=*A
+A=0
+*A=D
+
+A= RETVAL
+D=*A
+PUSH_D
